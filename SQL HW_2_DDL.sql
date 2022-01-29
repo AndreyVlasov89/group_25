@@ -36,16 +36,11 @@ salary_id int not null);
 
 select * from employee_salary;
 
---drop table employee_salary;
-
 -- 6.Наполнить таблицу employee_salary 40 строками:
 -- в 10 строк из 40 вставить несуществующие employee_id
 insert into employee_salary (employee_id, salary_id)
-values (77, 8),
-(78, 4),
-(79, 1),
-(80, 12);
-
+values (23, 1),
+(35, 8);
 
 -- 7.Создать таблицу roles
 create table roles 
@@ -54,32 +49,47 @@ role_name int not null unique);
 
 select * from roles;
 
+-- 8.Поменять тип столба role_name с int на varchar(30)
 alter table roles
-alter column role_name type int using role_name::integer;
+alter column role_name type varchar(30);
+
+-- 9.Наполнить таблицу roles 20 строками:
+insert into roles (role_name)
+values ('Junior Python developer'),
+('Middle Python developer'),
+('Senior Python developer'),
+('Junior Java developer'),
+('Middle Java developer'),
+('Senior Java developer'),
+('Junior JavaScript developer'),
+('Middle JavaScript developer'),
+('Senior JavaScript developer'),
+('Junior Manual QA engineer'),
+('Middle Manual QA engineer'),
+('Senior Manual QA engineer'),
+('Project Manager'),
+('Designer'),
+('HR'),
+('CEO'),
+('Sales manager'),
+('Junior Automation QA engineer'),
+('Middle Automation QA engineer'),
+('Senior Automation QA engineer');
+
 
 -- 10.Создать таблицу roles_employee
 create table roles_employee
 (id serial primary key,
 employee_id int not null unique,
-role_id int not null,
-foreign key (employee_id)
-	references employees(id),
-foreign key (role_id)
-	references roles(id)
-);
+role_id int not null);
 
 select * from roles_employee;
 
---drop table roles_employee;
-
+-- 11.Наполнить таблицу roles_employee 40 строками:
 insert into roles_employee (employee_id, role_id)
-values (41, 21);
---(32, 12),
---(33, 13),
---(34, 14),
---(35, 15),
---(36, 16),
---(37, 17),
---(38, 18),
---(39, 19),
---(40, 20);
+values (15, 13),
+(50, 1),
+(51, 12),
+(30, 14),
+(70, 11);
+

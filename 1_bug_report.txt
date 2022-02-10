@@ -1,8 +1,0 @@
-ID: 
-summary: 
-description: 
-expected_result: 
-actual_result: 
-reproducibility: 
-severity: 
-priority: 
